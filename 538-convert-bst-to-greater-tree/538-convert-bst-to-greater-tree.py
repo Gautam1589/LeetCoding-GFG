@@ -5,13 +5,20 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def __init__(self):
-        self.total = 0
-
     def convertBST(self, root):
-        if root is not None:
-            self.convertBST(root.right)
-            self.total += root.val
-            root.val = self.total
-            self.convertBST(root.left)
+        #reverse inorder (right-> root-> left)
+        self.curr=0
+        return self.dfs(root)
+    
+    def dfs(self,root):
+        if root==None:
+            return None
+        
+        self.dfs(root.right)
+        
+        self.curr+=root.val
+        root.val=self.curr
+        
+        self.dfs(root.left)
+        
         return root
