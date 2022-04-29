@@ -7,7 +7,7 @@
 from collections import deque
 class Solution:
     def minDepth(self, root: Optional[TreeNode]) -> int:
-        #return self.recursion(root)
+        return self.recursion(root)
         return self.bfs(root)
     
     def bfs(self,root):
