@@ -19,11 +19,14 @@ class Solution:
         while queue:
             level=len(queue)
             
-            for i in range(level-1):
-                queue[i].next=queue[i+1]
+            #for i in range(level-1):
+                #queue[i].next=queue[i+1]
             
             for i in range(level):
                 node=queue.pop(0)
+                
+                if i<level-1:
+                    node.next=queue[0]
                 
                 if node.left:
                     queue.append(node.left)
