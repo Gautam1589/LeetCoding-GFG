@@ -17,6 +17,7 @@ class Solution:
         
         if original.val==target.val:
             self.__ans=cloned
+            return
         
         self.dfs1(original.left,cloned.left,target)
         self.dfs1(original.right,cloned.right,target)
