@@ -11,6 +11,20 @@ class Solution:
     def findMid(self, head):
         # Code here
         # return the value stored in the middle node
+        #O(N)
+        slow,fast=head,head
+        while True:
+            if fast.next==None:
+                return slow.data
+            if fast.next.next==None:
+                return slow.next.data
+                
+            slow=slow.next
+            fast=fast.next.next
+        
+        return slow.data
+        
+        #O(N+N//2)
         temp=head
         n=0
         while temp:
