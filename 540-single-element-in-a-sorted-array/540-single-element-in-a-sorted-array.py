@@ -1,0 +1,21 @@
+class Solution:
+    def singleNonDuplicate(self, nums: List[int]) -> int:
+        def predicate(mid,nums):
+            if (mid<0 or nums[mid-1]!=nums[mid]) and (mid>=len(nums) or nums[mid]!=nums[mid+1]):
+                return True
+            else:
+                if mid&1:
+                    return nums[mid-1]!=nums[mid]
+                else:
+                    return nums[mid]!=nums[mid+1]
+                
+        nums.sort()
+        beg,end=0,len(nums)-1
+        while beg<end:
+            mid=(beg+end)//2
+            if predicate(mid,nums):
+                end=mid
+            else:
+                beg=mid+1
+        return nums[beg]
+        
