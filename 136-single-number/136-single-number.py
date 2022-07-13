@@ -20,16 +20,6 @@ class Solution:
                 beg=mid+1
         return nums[beg]
         
-        #O(N) time O(N) space
-        vis=[0]*max(nums)
-        for i in nums:
-            if vis[i]==0:
-                vis[i]+=1
-            else:
-                vis[i]-=1
-        for i in vis:
-            if i==1:
-                return i
             
         #O(N) time O(N) space
         d={}
