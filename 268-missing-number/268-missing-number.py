@@ -1,6 +1,12 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        #1st
+        #3rd
+        nums.sort()
+        for i in range(len(nums)):
+            if nums[i]!=i:
+                return i
+        
+        #2nd
         for i in range(len(nums)+1):
             nums.append(i)
     
@@ -9,7 +15,7 @@ class Solution:
             res^=i
         return res
         
-        #2nd
+        #1st
         s=sum(nums)
         n=len(nums)
         l=n*(n+1)//2
