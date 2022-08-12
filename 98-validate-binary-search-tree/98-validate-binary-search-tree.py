@@ -5,34 +5,20 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    def __init__(self):
+        self.ans=[]
+        
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        #O(n)
-        return self.solve(root,-math.inf,math.inf)
-    
-        #O(n)+O(n)
-        res=[]
-        self.inorder(root,res)
-        for i in range(len(res)-1):
-            if res[i]>=res[i+1]:
+        self.sol1(root)
+        for i in range(1,len(self.ans)):
+            if self.ans[i]<=self.ans[i-1]:
                 return False
         return True
         
-    def solve(self,root,ll,ul):
+    def sol1(self,root):
         if root==None:
-            return True
+            return None
         
-        if root.val>ll and root.val<ul:
-            return self.solve(root.left,ll,root.val) and self.solve(root.right,root.val,ul)
-        
-        return False
-        
-    def inorder(self,root,res):
-        if root==None:
-            return 
-    
-        self.inorder(root.left,res)
-        res.append(root.val)
-        self.inorder(root.right,res)
-        
-        return res
-        
+        self.sol1(root.left)
+        self.ans.append(root.val)
+        self.sol1(root.right)
