@@ -5,6 +5,19 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        return self.sol2(root,-math.inf,math.inf)
+    
+    def sol2(self,root,min_,max_):
+        if root==None:
+            return True
+        if root.val>=max_ or root.val<=min_:
+            return False
+        
+        return self.sol2(root.left,min_,root.val) and self.sol2(root.right,root.val,max_)
+        
+
+class Solution2:
     def __init__(self):
         self.ans=[]
         
